@@ -42,6 +42,34 @@ const data = [
     length: 278,
   },
 ];
+console.log(data[5].fact)
+for (let index = 0; index < data.length; index++) {
+  console.log(data[index].fact);
+}
+function timeout() {
+  console.log("Noe kommer til å skje!");
+
+  setTimeout(function () {
+    console.log("Nå har det skjedd!")
+  } , 3000);
+};
+
+timeout();
+
+async function fetchFile() {
+  const dataFile = await fetch("https://catfact.ninja/facts");
+  console.log(dataFile);
+
+  const response = await dataFile.json();
+  console.log(response.data[5].fact);
+
+  for( let index = 0; index < response.data.length; index++) {
+    console.log(response.data[index].fact);
+  }
+  
+}
+fetchFile();
+
 
 // Oppgave:
 // 1: Se på variable 'data' og identifiser hva den inneholder.
